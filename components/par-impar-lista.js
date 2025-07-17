@@ -4,30 +4,8 @@ class ParImparLista extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         
         this.shadowRoot.innerHTML = `
-            <style>
-                .result-container {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                }
-                .number-item {
-                    padding: 10px;
-                    border-radius: 4px;
-                    background-color: #f8f9fa;
-                }
-                .number-item.par {
-                    border-left: 4px solid #2ecc71;
-                }
-                .number-item.impar {
-                    border-left: 4px solid #e74c3c;
-                }
-                .empty-message {
-                    color: #7f8c8d;
-                    text-align: center;
-                    font-style: italic;
-                }
-            </style>
-            <div class="result-container">
+            <link rel="stylesheet" href="../style/main.css">
+            <div class="par-impar-container">
                 <div class="empty-message">Ingrese un rango de números para comenzar</div>
             </div>
         `;
@@ -40,8 +18,8 @@ class ParImparLista extends HTMLElement {
     }
 
     generateList(start, end) {
-        const container = this.shadowRoot.querySelector('.result-container');
-        container.innerHTML = ''; // Limpiar contenido anterior
+        const container = this.shadowRoot.querySelector('.par-impar-container');
+        container.innerHTML = '';
 
         if (start === undefined || end === undefined) {
             container.innerHTML = '<div class="empty-message">Datos inválidos</div>';
